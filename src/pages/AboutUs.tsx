@@ -14,7 +14,7 @@ export default function AboutSection() {
       name: "Alshan Rijal",
       role: "Vice President",
 
-      image: "./src/assets/vicepresident.jpg",
+      image: "./src/assets/vp.jpeg",
     },
     {
       name: "Sajib Katuwal",
@@ -37,7 +37,7 @@ export default function AboutSection() {
       name: "Swikar Dhungel",
       role: "Joint-Secretary",
 
-      image: "./src/assets/eventcoord.jpg",
+      image: "./src/assets/sec.jpeg",
     },
     {
       name: "Prastuti Niroula",
@@ -202,7 +202,7 @@ export default function AboutSection() {
       <div className=" m-0 p-0 flex flex-col justify-center items-center font-poppins">
         <div className="max-w-full w-full bg-[#112244] shadow-xl pt-10 gap-5">
           <h3 className="text-5xl font-[900] text-center font-poppins mb-2 text-[#9cc9ff]">
-            Head of Department
+            Board Of Directors
           </h3>
           <p className="text-center text-gray-300 mb-10 font-thin text-sm">
             Meet the brilliant minds leading our technical, creative, and
