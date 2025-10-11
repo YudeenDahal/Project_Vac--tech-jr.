@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 if (isset($_SESSION['errors'])) {
     $errors = $_SESSION['errors'];
@@ -12,16 +11,26 @@ if (isset($_SESSION['errors'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Vac-Tech Jr | Register</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
 </head>
 
 <body>
-    <div class="container" id="signup">
-        <h1 class="form-title">Register</h1>
-        
+  <div class="wrapper">
+    <!-- Left Side with Image Only -->
+    <div class="left-side">
+    </div>
+
+    <!-- Right Side with Form -->
+    <div class="right-side">
+      <div class="container" id="signup">
+        <div class="tabs">
+          <button class="tab-btn" onclick="window.location.href='index.php'">Login</button>
+          <button class="tab-btn active">SignUp</button>
+        </div>
+
+        <h1 class="form-title">Create Account</h1>
         
         <?php
         if (isset($errors['user_exist'])) {
@@ -31,16 +40,16 @@ if (isset($_SESSION['errors'])) {
                     unset($errors['user_exist']);
         }
         ?>
+        
         <form method="POST" action="user-account.php">
             <div class="input-group">
                 <i class="fas fa-user"></i>
-                <input type="text" name="name" id="name" placeholder="Name" required>
+                <input type="text" name="name" id="name" placeholder="Full Name" required>
                 <?php
                 if (isset($errors['name'])){
                     echo ' <div class="error">
                     <p>' . $errors['name'] . '</p>
                 </div>';
-          
                 }
                 ?>
             </div>
@@ -54,10 +63,10 @@ if (isset($_SESSION['errors'])) {
                     <p>' . $errors['email'] . '</p>
                     </div>';
                     unset($errors['email']);
-
                 }
                 ?>
             </div>
+            
             <div class="input-group password">
                 <i class="fas fa-lock"></i>
                 <input type="password" name="password" id="password" placeholder="Password" >
@@ -66,13 +75,12 @@ if (isset($_SESSION['errors'])) {
                 if (isset($errors['password'])) {
                     echo '<div class="error">
                     <p>' . $errors['password'] . '</p>
-                    </div>'
-                    ;
+                    </div>';
                     unset($errors['password']);
-
                 }
                 ?>
             </div>
+            
             <div class="input-group">
                 <i class="fas fa-lock"></i>
                 <input type="password" name="confirm_password" placeholder="Confirm Password" required>
@@ -82,25 +90,21 @@ if (isset($_SESSION['errors'])) {
                     <p>' . $errors['confirm_password'] . '</p>
                     </div>';
                     unset($errors['confirm_password']);
-
                 }
                 ?>
             </div>
+            
             <input type="submit" class="btn" value="Sign Up" name="signup">
         </form>
-        <p class="or">
-            ----------or--------
-        </p>
-        <div class="icons">
-            <i class="fab fa-google"></i>
-            <i class="fab fa-facebook"></i>
+        
+        <div class="signup-link">
+          <p>Already have an account? <a href="index.php">Sign in</a></p>
         </div>
-        <div class="links">
-            <p>Already Have Account ?</p>
-            <a href="index.php">Sign In</a>
-        </div>
+      </div>
     </div>
-    <script src="script.js"></script>
+  </div>
+  
+  <script src="script.js"></script>
 </body>
 
 </html>
