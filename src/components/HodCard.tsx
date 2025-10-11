@@ -13,7 +13,7 @@ const HodCard: React.FC<HodCardProps> = ({ name, role, image }) => {
       <img src={image} alt={name} className="w-full h-full object-cover" />
 
       <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/80 to-transparent"></div>
-      <div className="absolute text-center bottom-3 left-8 text-white">
+      <div className="absolute text-center bottom-2 left-10 text-white">
         <h3 className="text-md w-full font-bold ">{name}</h3>
         <p className="text-sm text-gray-300">{role}</p>
       </div>

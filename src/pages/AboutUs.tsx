@@ -8,7 +8,7 @@ export default function AboutSection() {
       name: "Rishab Thapa",
       role: "President",
 
-      image: "./src/assets/president.jpg",
+      image: "./src/assets/rishab.jpg",
     },
     {
       name: "Alshan Rijal",
