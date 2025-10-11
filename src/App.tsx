@@ -1,11 +1,11 @@
-import AboutUs from "./pages/AboutUs";
-import HomePage from "./pages/Home";
+// import AboutUs from "./pages/AboutUs";
+// import HomePage from "./pages/Home";
+import Landing from "./pages/Landing";
 
 function App() {
   return (
     <>
-      <HomePage />
-      <AboutUs />
+      <Landing />
     </>
   );
 }
