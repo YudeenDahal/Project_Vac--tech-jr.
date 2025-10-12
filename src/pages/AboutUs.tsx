@@ -28,17 +28,18 @@ export default function AboutSection() {
       image: "./src/assets/creativelead.jpg",
     },
     {
-      name: "Romin Ban",
-      role: "Secretary",
-
-      image: "./src/assets/eventcoord.jpg",
-    },
-    {
       name: "Swikar Dhungel",
       role: "Joint-Secretary",
 
       image: "./src/assets/sec.jpeg",
     },
+    {
+      name: "Romin Ban",
+      role: "Secretary",
+
+      image: "./src/assets/eventcoord.jpg",
+    },
+
     {
       name: "Prastuti Niroula",
       role: "Joint-Secretary",
@@ -75,7 +76,7 @@ export default function AboutSection() {
       name: "Yubaraj Lamichhane",
       role: "PR Head",
 
-      image: "./src/assets/prhead.jpg",
+      image: "./src/assets/pr.jpeg",
     },
   ];
 
