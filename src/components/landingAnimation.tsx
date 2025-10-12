@@ -2,14 +2,14 @@ import { motion, useReducedMotion } from "framer-motion";
 
 type AnimatedBackgroundProps = {
   src?: string;
-  duration?: number; // seconds
+  duration?: number;
   className?: string;
   enableGlows?: boolean;
 };
 
 export default function AnimatedBackground({
   src = "./src/assets/landingbg.svg",
-  duration = 42,
+  duration = 30,
   className = "",
   enableGlows = true,
 }: AnimatedBackgroundProps) {
@@ -18,10 +18,11 @@ export default function AnimatedBackground({
   const animate = prefersReducedMotion
     ? { x: 0, y: 0, scale: 1, rotate: 0 }
     : {
-        x: [-25, 20, -15, 25, -25],
-        y: [-12, 8, -8, 10, -12],
-        scale: [1, 1.03, 1.01, 1.04, 1],
-        rotate: [0, 0.25, 0, -0.25, 0],
+        x: [4, 4, 4, 4, 4, 4],
+        y: [5, 5, 5, 5, 5, 5],
+        scale: [0, 1, 1.03, 1.01, 1.04, 1],
+        rotate: [0, 0, 0.25, 0, -0.25, 0],
+        opacity: [0, 1, 1, 1, 1, 1],
       };
 
   const transition = {

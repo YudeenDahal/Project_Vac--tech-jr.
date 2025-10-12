@@ -10,14 +10,14 @@ export default function PreLoginLanding() {
           <AnimatedBackground src="./src/assets/landingbg.svg" />
 
           <motion.img
-            src="./src/assets/landingrobo.svg"
+            src="./src/assets/inroducing.svg"
             alt="VAC Tech Jr Club Landing"
             className="relative z-10 w-full drop-shadow-[0_0_40px_rgba(147,197,253,0.35)] select-none"
           />
         </div>
       </div>
 
-      <div className="pointer-events-auto absolute bottom-30 left-[49%] z-20 -translate-x-1/2">
+      <div className="pointer-events-auto absolute bottom-[10%] left-[49%] z-20 -translate-x-1/2">
         <div className="flex items-center justify-center gap-4">
           <button className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white px-8 py-3 rounded-full font-semibold shadow-lg shadow-blue-900/30 transition-transform hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#5ea4ff] focus:ring-offset-2 focus:ring-offset-[#0a1a33]">
             Get Started
