@@ -1,8 +1,7 @@
-
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import AboutUs from "./pages/AboutUs";
-import HomePage from "./pages/HomePage";
+import Landing from "./pages/Landing";
 
 const AppContent = () => {
   return (
@@ -15,7 +14,7 @@ const AppContent = () => {
 
       <main>
         <Routes>
-           <Route path="/" element={<HomePage />} />
+           <Route path="/" element={ <Landing />} />
           <Route path="/about-us" element={<AboutUs />} />
         </Routes>
       </main>
@@ -30,9 +29,6 @@ function App() {
       <Route path="/*" element={<AppContent />} />
     </Routes>    
     </BrowserRouter>
-    
-
-
   );
 }
 
