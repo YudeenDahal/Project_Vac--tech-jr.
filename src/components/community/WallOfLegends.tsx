@@ -5,35 +5,35 @@ const legends = [
   {
     rank: 1,
     name: "Chris Evans",
-    position: "Lead Developer",
+
     points: 2450,
     avatar: "/avatars/chris.png",
   },
   {
     rank: 2,
     name: "Sarah Day",
-    position: "UI/UX Designer",
+
     points: 2100,
     avatar: "/avatars/sarah.png",
   },
   {
     rank: 3,
     name: "Mike Chen",
-    position: "Backend Specialist",
+
     points: 1980,
     avatar: "/avatars/mike.png",
   },
   {
     rank: 4,
     name: "Liam Harris",
-    position: "Project Manager",
+
     points: 1850,
     avatar: "/avatars/liam.png",
   },
   {
     rank: 5,
     name: "Olivia Martin",
-    position: "QA Engineer",
+
     points: 1700,
     avatar: "/avatars/olivia.png",
   },
@@ -47,9 +47,7 @@ export default function WallOfLegends() {
     <section className="min-h-screen flex flex-col justify-center items-center py-20 px-4 sm:px-10 bg-[#102a4e]/50">
       <div className="max-w-7xl w-full mx-auto">
         <div className="text-center">
-          <h2 className="text-4xl font-bold text-[#9cc9ff]">
-            The Wall of Legends
-          </h2>
+          <h2 className="text-6xl font-bold text-[#9cc9ff]">Hall of Fame</h2>
           <p className="text-gray-400 mt-2 max-w-2xl mx-auto">
             Celebrating our most active and impactful members. Rise through the
             ranks and earn your spot!
@@ -57,9 +55,7 @@ export default function WallOfLegends() {
         </div>
 
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-10">
-          {/* Legends Podium and List */}
           <div className="lg:col-span-2">
-            {/* Podium for Top 3 */}
             <div className="flex justify-center items-end gap-4">
               {/* 2nd Place */}
               <PodiumMember
@@ -84,7 +80,6 @@ export default function WallOfLegends() {
               />
             </div>
 
-            {/* Other Legends List */}
             <div className="mt-10 flex flex-col gap-4">
               {others.map((member) => (
                 <div
@@ -102,7 +97,6 @@ export default function WallOfLegends() {
                     />
                     <div>
                       <p className="font-semibold text-white">{member.name}</p>
-                      <p className="text-sm text-gray-400">{member.position}</p>
                     </div>
                   </div>
                   <p className="font-bold text-lg text-[#9cc9ff]">
@@ -113,7 +107,6 @@ export default function WallOfLegends() {
             </div>
           </div>
 
-          {/* Rank Info Sidebar */}
           <aside className="lg:col-span-1 flex flex-col gap-8">
             <InfoCard
               icon={<Info />}
@@ -132,16 +125,14 @@ export default function WallOfLegends() {
   );
 }
 
-// Type for legend member
 type LegendMember = {
   rank: number;
   name: string;
-  position: string;
+
   points: number;
   avatar: string;
 };
 
-// Helper component for Podium members to avoid repetition
 type PodiumMemberProps = {
   member: LegendMember;
   height: string;
@@ -165,7 +156,7 @@ const PodiumMember = ({
     />
 
     <h4 className="font-bold text-white text-xl">{member.name}</h4>
-    <p className="text-gray-400 text-sm">{member.position}</p>
+
     <p className={`font-black text-2xl mt-2 ${medalColor}`}>
       {member.points} pts
     </p>
@@ -177,7 +168,7 @@ type InfoCardProps = {
   title: string;
   description: string;
 };
-// Helper component for Info Cards
+
 const InfoCard = ({ icon, title, description }: InfoCardProps) => (
   <div className="bg-[#1a2f55] p-6 rounded-2xl">
     <div className="flex items-center gap-3">

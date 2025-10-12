@@ -1,13 +1,15 @@
 import CommunityFeed from "../components/community/CommunityFeed";
 import NewsAndEvents from "../components/community/NewsAndEvents";
-import WallOfLegends from "../components/community/WallOfLegends";
+
+import { Link } from "react-router-dom";
 
 export default function CommunityPage() {
   return (
     <main className="w-full m-0 p-0 bg-[#0a1a33] text-white font-poppins">
       <NewsAndEvents />
       <CommunityFeed />
-      <WallOfLegends />
+      <Link to="/PollsPage"></Link>
+      <Link to="/WallOfLegends"></Link>
     </main>
   );
 }

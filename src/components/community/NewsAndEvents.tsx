@@ -30,7 +30,7 @@ const otherNews = [
 export default function NewsAndEvents() {
   return (
     <section className="min-h-screen flex flex-col items-center p-5  bg-[#102a4e]/50">
-      <div className="my-15 items-center text-center">
+      <div className="my-5 items-center text-center">
         <h2 className="text-6xl mb-2 font-bold text-[#9cc9ff]">
           Community Hub
         </h2>
@@ -47,7 +47,7 @@ export default function NewsAndEvents() {
               <img
                 src={recentEvent.imageUrl}
                 alt="Recent Event"
-                className="w-full h-96 object-cover"
+                className="w-full h-108 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 to-transparent"></div>
               <div className="absolute bottom-0 left-0 p-6 text-white">
@@ -61,28 +61,31 @@ export default function NewsAndEvents() {
               </div>
             </div>
           </div>
-
-          <div className="h-96 overflow-y-scroll  scroll-smooth noScroll">
-            <h1 className="text-2xl mb-5 font-bold text-[#9cc9ff]">
+          <div>
+            <h1 className="text-2xl  mb-5 font-bold text-[#9cc9ff]">
               More News
             </h1>
-            <div className="flex flex-col gap-2 ">
-              {otherNews.map((news, index) => (
-                <div
-                  key={index}
-                  className="bg-[#1a2f55] p-6 rounded-2xl flex items-start gap-4 hover:bg-[#254272] hover:scale-101 transform transition-all duration-300"
-                >
-                  <div className="bg-[#2563eb] p-3 rounded-lg">
-                    <Newspaper className="text-white" size={24} />
+            <div className="h-95 overflow-scroll noScroll overflow-x-hidden">
+              <div className="flex flex-col gap-2 overflow-y-scroll noScroll  scroll-smooth ">
+                {otherNews.map((news, index) => (
+                  <div
+                    key={index}
+                    className="bg-[#1a2f55] p-6 rounded-2xl flex items-start gap-4 hover:bg-[#254272] hover:scale-101 transform transition-all duration-300"
+                  >
+                    <div className="bg-[#2563eb] p-3 rounded-lg">
+                      <Newspaper className="text-white" size={24} />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-lg text-white">
+                        {news.title}
+                      </h4>
+                      <p className="text-gray-400 text-sm mt-1">
+                        {news.excerpt}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h4 className="font-semibold text-lg text-white">
-                      {news.title}
-                    </h4>
-                    <p className="text-gray-400 text-sm mt-1">{news.excerpt}</p>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
