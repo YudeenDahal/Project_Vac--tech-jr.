@@ -8,18 +8,18 @@ export default function AboutSection() {
       name: "Rishab Thapa",
       role: "President",
 
-      image: "./src/assets/rishab.jpg",
+      image: "./src/assets/hod&ch/rishab.jpg",
     },
     {
       name: "Alshan Rijal",
       role: "Vice President",
 
-      image: "./src/assets/vp.jpeg",
+      image: "./src/assets/hod&ch/vp.jpeg",
     },
     {
       name: "Sajib Katuwal",
       role: "Vice President",
-      image: "./src/assets/techhead.jpg",
+      image: "./src/assets/hod&ch/mvp.jpeg",
     },
     {
       name: "Keshab Chauhan",
@@ -31,7 +31,7 @@ export default function AboutSection() {
       name: "Swikar Dhungel",
       role: "Joint-Secretary",
 
-      image: "./src/assets/sec.jpeg",
+      image: "./src/assets/hod&ch/sec.jpeg",
     },
     {
       name: "Romin Ban",
@@ -76,7 +76,7 @@ export default function AboutSection() {
       name: "Yubaraj Lamichhane",
       role: "PR Head",
 
-      image: "./src/assets/pr.jpeg",
+      image: "./src/assets/hod&ch/pr.jpeg",
     },
   ];
 
@@ -164,7 +164,10 @@ export default function AboutSection() {
 
   // ---------- RETURN ----------
   return (
-    <section className="min-h-screen w-full bg-[#0a1a33] text-white font-poppins">
+    <section
+      id="about"
+      className="min-h-screen pt-10 w-full bg-[#0a1a33] text-white font-poppins"
+    >
       <div className="h-screen flex flex-col justify-center items-center px-6 bg-[#0a1a33]">
         <div className=" w-full h-full rounded-2xl p-10">
           <h3 className="text-5xl font-semibold text-center mb-4 text-[#9cc9ff]">

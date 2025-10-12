@@ -1,33 +1,37 @@
-import { Route, BrowserRouter, Routes } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
-import AboutUs from "./pages/AboutUs";
-import Landing from "./pages/Landing";
-
-const AppContent = () => {
-  return (
-    <div
-      className={` flex flex-col min-h-screen transition-colors duration-300 `}
-    >
-      <div className="sticky top-0 z-50">
-        <NavBar />
-      </div>
-
-      <main>
-        <Routes>
-           <Route path="/" element={ <Landing />} />
-          <Route path="/about-us" element={<AboutUs />} />
-        </Routes>
-      </main>
-    </div>
-  );
-};
+import HomePage from "./pages/Home";
+import ScrollToTop from "./components/ScrollToTop";
+import CommunityPage from "./pages/CommunityPage";
+import PollsPage from "./components/community/Polls";
+import PreLoginLanding from "./pages/Landing";
+import WallOfLegends from "./components/community/WallOfLegends";
 
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
-      <Route path="/*" element={<AppContent />} />
-    </Routes>    
+        <Route path="/" element={<PreLoginLanding />} />
+
+        <Route
+          path="/*"
+          element={
+            <>
+              <NavBar />
+              <Routes>
+                <Route path="home" element={<HomePage />} />
+                <Route path="PollsPage" element={<PollsPage />} />
+                <Route path="community" element={<CommunityPage />} />
+                {/* <Route path="events" element={<EventsPage />} />
+                <Route path="projects" element={<ProjectsPage />} />
+                <Route path="dashboard" element={<Dashboard />} /> */}
+                <Route path="WallOfLegends" element={<WallOfLegends />} />
+              </Routes>
+            </>
+          }
+        />
+      </Routes>
     </BrowserRouter>
   );
 }

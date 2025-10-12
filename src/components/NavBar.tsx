@@ -1,24 +1,44 @@
 import { NavLink } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 const NavLinkList = () => {
   return (
     <>
-      <NavLink to={"/"} className="text-gray-500 focus:text-gray-800">
+      <NavLink
+        to="/home"
+        className="text-white/40 hover:text-white/60 focus:text-white"
+      >
         Home
       </NavLink>
-      <NavLink to={"/about"}  className="text-gray-500 focus:text-gray-800">
-        About
-      </NavLink>
-      <NavLink to={"/events"} className={`text-gray-500 focus:text-gray-800`}>
+      <HashLink
+        smooth
+        to="/home#about"
+        className="text-white/40 hover:text-white/60 focus:text-white"
+      >
+        About Us
+      </HashLink>
+      <NavLink
+        to="/events"
+        className="text-white/40 hover:text-white/60 focus:text-white"
+      >
         Events
       </NavLink>
-      <NavLink to={"/projects"} className={`text-gray-500 focus:text-gray-800`}>
+      <NavLink
+        to="/projects"
+        className="text-white/40 hover:text-white/60 focus:text-white"
+      >
         Projects
       </NavLink>
-      <NavLink to={"/community"} className={`text-gray-500 focus:text-gray-800`}>
+      <NavLink
+        to="/community"
+        className="text-white/40 hover:text-white/60 focus:text-white"
+      >
         Community
       </NavLink>
-      <NavLink to={"/dashboard"} className={`text-gray-500 focus:text-gray-800`}>
+      <NavLink
+        to="/dashboard"
+        className="text-white/40 hover:text-white/60 focus:text-white"
+      >
         Dashboard
       </NavLink>
     </>
@@ -27,7 +47,7 @@ const NavLinkList = () => {
 
 const NavBar = () => {
   return (
-    <div className="sticky top-6 z-10 py-4 bg-white ">
+    <div className="sticky top-0 z-100 m-0 py-4 bg-transparent backdrop-blur-lg ">
       <div className="flex items-center justify-between px-14">
         <div className="flex gap-x-2 items-center">
           <img
@@ -35,7 +55,7 @@ const NavBar = () => {
             alt="logo"
             className="h-10 w-10 object-contain rounded-full"
           />
-          <p className="text-xl font-semibold text-gray-800">Vac Tech Jr</p>
+          <p className="text-xl font-semibold text-white">Vac Tech Jr</p>
         </div>
 
         <div className="flex items-center gap-14">
@@ -43,7 +63,7 @@ const NavBar = () => {
             <NavLinkList />
           </div>
 
-          <button className="cursor-pointer font-semibold text-primary border-2 object-content rounded-4xl px-4 py-2 border-primary-300 text-primary-300">
+          <button className="cursor-pointer font-semibold text-primary border-2 object-content rounded-4xl px-4 py-2 border-white text-white hover:bg-white hover:text-[#0a1a33] transition">
             Get Started
           </button>
         </div>

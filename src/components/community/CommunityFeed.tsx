@@ -2,14 +2,22 @@ import {
   Plus,
   MessageCircle,
   ThumbsUp,
-  Share2,
   Image,
   BarChart3,
   Trophy,
 } from "lucide-react";
-
-// Mock Data for Feed
+import { Link } from "react-router-dom";
 const feedItems = [
+  {
+    id: 1,
+    author: "Jane Doe",
+    avatar: "/avatars/jane.png",
+    time: "2h ago",
+    content:
+      "Just pushed the latest updates for the 'CodeStream' project. Check out the new dashboard feature!",
+    likes: 12,
+    comments: 3,
+  },
   {
     id: 1,
     author: "Jane Doe",
@@ -44,23 +52,40 @@ const feedItems = [
 
 export default function CommunityFeed() {
   return (
-    <section className="min-h-screen flex flex-col justify-center items-center  m-0 px-4 sm:px-5">
-      <h2 className="text-6xl m-auto font-bold text-[#9cc9ff]">
-        Where Members Connect
-      </h2>
-      <p className="text-gray-400 mt-2">
-        Latest news, events, and highlights from the club.
-      </p>
-      <div className="max-w-7xl w-full mx-auto grid grid-cols-1 lg:grid-cols-4 gap-10">
-        {/* Main Feed Content */}
+    <section className="min-h-screen flex flex-col justify-center items-center my-15 px-4 sm:px-5">
+      <div className=" flex flex-col my-6 items-center">
+        <h2 className="text-6xl  font-bold text-[#9cc9ff]">
+          Where Members Connect
+        </h2>
+        <p className="text-gray-400 w-[70%] text-center">
+          Connect, share, explore, and engage — where every member’s voice and
+          creativity come together.
+        </p>
+      </div>
+
+      <div className="max-w-7xl w-full mx-auto mt-10 grid grid-cols-1 lg:grid-cols-4 gap-10">
+        <div>
+          <aside className="lg:col-span-1 flex flex-col gap-6">
+            <button className="w-full h-[15%] md:h-[50%]  flex flex-row  md:flex-col justify-center items-center gap-4 text-2xl font-md  bg-[#1a2f55] hover:bg-[#254272] px-6 py-4 rounded-xl font-semibold transition transform hover:scale-105">
+              <Image className="text-[#9cc9ff] " size={30} /> Gallery
+            </button>
+            <Link to="/PollsPage">
+              <button className="w-full h-[15%] md:h-[50%] flex flex-row md:flex-col justify-center items-center gap-4 text-2xl font-md  bg-[#1a2f55] hover:bg-[#254272] px-6 py-4 rounded-xl font-semibold transition transform hover:scale-105">
+                <BarChart3 className="text-[#9cc9ff] " size={30} /> Polls
+              </button>
+            </Link>
+            <Link to="/WallOfLegends">
+              <button className="w-full h-[15%] md:h-[50%] flex flex-row md:flex-col justify-center items-center gap-4 text-2xl font-md bg-[#1a2f55] hover:bg-[#254272] px-6 py-4 rounded-xl font-semibold transition transform hover:scale-105">
+                <Trophy className="text-[#9cc9ff] " size={30} /> Leaderboard
+              </button>
+            </Link>
+          </aside>
+        </div>
         <div className="lg:col-span-3">
           {/* Share Box */}
           <div className="bg-[#102a4e] p-4 rounded-2xl flex items-center gap-4 mb-8 shadow-lg">
-            <img
-              src="/avatars/user.png"
-              alt="Your Avatar"
-              className="w-12 h-12 rounded-full"
-            />
+            <img src="/" alt="Your Avatar" className="w-12 h-12 rounded-full" />
+            {/* TODO:-----------Placeholder avatar here-------------- */}
             <input
               type="text"
               placeholder="Share something with your community..."
@@ -72,7 +97,7 @@ export default function CommunityFeed() {
           </div>
 
           {/* Member Status Feed */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-6 overflow-scroll overflow-x-hidden noScroll h-[550px] pr-2">
             {feedItems.map((item) => (
               <div
                 key={item.id}
@@ -80,7 +105,7 @@ export default function CommunityFeed() {
               >
                 <div className="flex items-start gap-4">
                   <img
-                    src={item.avatar}
+                    src={item.avatar} //TODO:-----------Placeholder avatar here--------------
                     alt={item.author}
                     className="w-12 h-12 rounded-full"
                   />
@@ -101,27 +126,11 @@ export default function CommunityFeed() {
                   <button className="flex items-center gap-2 hover:text-[#5ea4ff] transition">
                     <MessageCircle size={18} /> {item.comments} Comments
                   </button>
-                  <button className="flex items-center gap-2 hover:text-[#5ea4ff] transition">
-                    <Share2 size={18} /> Share
-                  </button>
                 </div>
               </div>
             ))}
           </div>
         </div>
-
-        {/* Right Sidebar */}
-        <aside className="lg:col-span-1 flex flex-col gap-6">
-          <button className="w-full flex items-center gap-4 bg-[#1a2f55] hover:bg-[#254272] px-6 py-4 rounded-xl font-semibold transition transform hover:scale-105">
-            <Image className="text-[#9cc9ff]" size={24} /> Gallery
-          </button>
-          <button className="w-full flex items-center gap-4 bg-[#1a2f55] hover:bg-[#254272] px-6 py-4 rounded-xl font-semibold transition transform hover:scale-105">
-            <BarChart3 className="text-[#9cc9ff]" size={24} /> Polls
-          </button>
-          <button className="w-full flex items-center gap-4 bg-[#1a2f55] hover:bg-[#254272] px-6 py-4 rounded-xl font-semibold transition transform hover:scale-105">
-            <Trophy className="text-[#9cc9ff]" size={24} /> Leaderboard
-          </button>
-        </aside>
       </div>
     </section>
   );

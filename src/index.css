@@ -4,8 +4,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 body {
   font-family: "Poppins", sans-serif;
+  background: #0a1a33;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
 }
-
+.noScroll {
+  overflow: scroll;
+  scrollbar-width: none;
+}
+/* 
 
 @theme{
 
@@ -16,25 +23,16 @@ body {
   --color-primary-100: #0B80A1;
 
 
-}
-
-
-@layer utilities {
-  .nav-link {
-    @apply text-gray-500;
-    /* default color */
-  }
-
+} */
+/* \
   .nav-link.active {
-    @apply text-black;
+    color: #000000;
     /* active state styles */
-  }
 
-  /* .sideBar.active{
+/* .sideBar.active{
       @apply text-primary bg-light-200;
     }
 
     .ChildSideBar.active{
       @apply text-primary;
     } */
-}
