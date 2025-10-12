@@ -1,11 +1,13 @@
 // import AboutUs from "./pages/AboutUs";
-// import HomePage from "./pages/Home";
-import Landing from "./pages/Landing";
+import HomePage from "./pages/Home";
+// import Landing from "./pages/Landing";
+// import CommunityPage from "./pages/CommunityPage";
 
 function App() {
   return (
     <>
-      <Landing />
+      {/* <CommunityPage /> */}
+      <HomePage />
     </>
   );
 }
