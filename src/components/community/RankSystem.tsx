@@ -15,7 +15,7 @@ const rankData = [
     rank: "🧱 Builder",
     points: "350 – 649 pts",
     desc: "Contributing in projects or committees — now making a mark!",
-    perks: ["— value on project"],
+    perks: ["value on project"],
   },
   {
     rank: "💻 Developer",
