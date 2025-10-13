@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 import { Sparkles, Info, Crown } from "lucide-react";
 import { InfoModal } from "./InfoModal";
 import { RanksTable, XpFormulaInfo } from "./RankSystem";
+import CountUp from "react-countup";
 
 // Mock data for legends
 const legends = [
@@ -74,7 +75,9 @@ const PodiumMember = ({
       className="w-20 h-20 rounded-full border-4 border-white mb-3"
     />
     <h4 className="font-bold text-white text-xl">{member.name}</h4>
-    <p className={`font-black text-xl ${medalColor}`}>{member.points} pts</p>
+    <p className={`font-black text-xl ${medalColor}`}>
+      <CountUp end={member.points} duration={3} /> pts
+    </p>
   </div>
 );
 
@@ -90,7 +93,6 @@ const InfoCard = ({ icon, title, description, onClick }: InfoCardProps) => (
   </button>
 );
 
-// --- DATA PREPARATION ---
 const podium = legends.slice(0, 3);
 const others = legends.slice(3);
 
@@ -164,7 +166,7 @@ export default function WallOfLegends() {
                       <p className="font-semibold text-white">{member.name}</p>
                     </div>
                     <p className="font-bold text-lg text-[#9cc9ff]">
-                      {member.points} pts
+                      <CountUp end={member.points} duration={2}></CountUp> pts
                     </p>
                   </div>
                 ))}
