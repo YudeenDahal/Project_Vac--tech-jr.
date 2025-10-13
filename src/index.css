@@ -7,32 +7,17 @@ body {
   background: #0a1a33;
   scroll-behavior: smooth;
   scrollbar-width: none;
+  scrollbar-width: thin;
+  scrollbar-color: #9cc9ff #1a2f55;
 }
 .noScroll {
   overflow: scroll;
   scrollbar-width: none;
 }
-/* 
-
-@theme{
-
-  --color-primary-500: #08204f;
-  --color-primary-400: #032E66;
-  --color-primary-300: #063F78;
-  --color-primary-200: #016394;
-  --color-primary-100: #0B80A1;
-
-
-} */
-/* \
-  .nav-link.active {
-    color: #000000;
-    /* active state styles */
-
-/* .sideBar.active{
-      @apply text-primary bg-light-200;
-    }
-
-    .ChildSideBar.active{
-      @apply text-primary;
-    } */
+.scrolling {
+  scrollbar-width: thin;
+  scrollbar-color: #9cc9ff transparent;
+  scrollbar-gutter: stable;
+  scrollbar-arrow-color: transparent;
+}
+/* Add this at the end of your global CSS file */
