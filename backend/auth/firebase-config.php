@@ -19,6 +19,10 @@ class FirebaseAuth {
         $response = $this->makeRequest($url, $data);
         
         if (isset($response['localId'])) {
+
+             header("Location: http://localhost:8000/index.php");
+             exit;
+             
             return [
                 'success' => true,
                 'uid' => $response['localId'],
@@ -46,6 +50,10 @@ class FirebaseAuth {
         $response = $this->makeRequest($url, $data);
         
         if (isset($response['localId'])) {
+
+            header("Location: http://localhost:5173/home");
+            exit;
+
             return [
                 'success' => true,
                 'uid' => $response['localId'],

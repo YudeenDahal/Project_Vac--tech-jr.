@@ -1,6 +1,7 @@
 from flask import Flask
 from firebase_admin import firestore, credentials, initialize_app
 import cloudinary
+from flask_cors import CORS
 
 db = None
 
@@ -20,13 +21,16 @@ def create_app():
     initialize_app(cred)
     db = firestore.client()
 
+    '''Enabling Flask CORS to the app'''
+    CORS(app, supports_credentials=True)
+
     '''Attaching DB Config'''
     app.config['db'] = db
 
 
     '''Registering Blueprints'''
     from app.routes.manage_events import events_bp
-    app.register_blueprint(events_bp)
+    app.register_blueprint(events_bp, url_prefix='/api')
 
     from app.routes.leaderboard import leaderboard_bp
     app.register_blueprint(leaderboard_bp, url_prefix='/api/leaderboard')

@@ -2,17 +2,33 @@ from flask import Blueprint, jsonify, request, current_app
 
 events_bp = Blueprint('events', __name__)
 
-@events_bp.route('/')
+@events_bp.route('/events')
 def get_all_events():
     try:
         db = current_app.config['db']
-        events_ref = db.collection('Events')
+        events_ref = db.collection('events')
 
-        events = [{'id':docs.id, **docs.to_dict()} for docs in events_ref.stream()]
-        return jsonify({'msg':'sucessfully fetched all events','events': events}), 200
-    
+        events_list = [{'id': doc.id, **doc.to_dict()} for doc in events_ref.stream()]
+
+        events_by_date = {}
+        for ev in events_list:
+            date_key = ev.get('date')
+            if not date_key:
+                continue
+            if date_key not in events_by_date:
+                events_by_date[date_key] = []
+
+            events_by_date[date_key].append({
+                'id': ev['id'],
+                'title': ev.get('title') or ev.get('Title'),
+                'desc': ev.get('description'),
+                'color': ev.get('color', 'yellow')
+            })
+
+        return jsonify(events_by_date), 200
+
     except Exception as e:
-        return jsonify({'msg':'Internal Server error', 'error': str(e)})
+        return jsonify({'msg': 'Internal Server error', 'error': str(e)}), 500
     
 @events_bp.route('/sample_event', methods=['POST'])
 def enter_sample_event():
@@ -73,7 +89,7 @@ def add_event():
         if not data:
             return jsonify({"error": "No data provided"}), 400
         
-        required_fields = ["title", "desc", "on_date", "organizers", "color"]
+        required_fields = ["title", "description", "date",  "color"]
         for field in required_fields:
             if field not in data:
                 return jsonify({"error": f"Missing field: {field}"}), 400
@@ -81,9 +97,8 @@ def add_event():
         doc_ref = db.collection('events').document() 
         doc_ref.set({
             "title": data["title"],
-            "desc": data["desc"],
-            "on_date": data["on_date"],
-            "organizers": data["organizers"],
+            "description": data["description"],
+            "date": data["date"],
             "color": data["color"]
         })
 
