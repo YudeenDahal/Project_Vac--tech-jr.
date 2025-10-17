@@ -37,5 +37,8 @@ def create_app():
 
     from app.routes.manage_gallery import gallery_bp
     app.register_blueprint(gallery_bp, url_prefix='/api/gallery')
+
+    from app.routes.manage_projects import projects_bp
+    app.register_blueprint(projects_bp, url_prefix='/api/projects')
     
     return app
