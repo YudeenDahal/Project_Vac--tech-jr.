@@ -5,8 +5,7 @@ class FirebaseAuth {
     public function __construct($apiKey) {
         $this->apiKey = $apiKey;
     }
-    
-    // Sign up user
+
     public function signUp($email, $password, $name) {
         $url = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=" . $this->apiKey;
         
@@ -17,18 +16,10 @@ class FirebaseAuth {
         ];
         
         $response = $this->makeRequest($url, $data);
-        
-        if (isset($response['localId'])) {
 
-             header("Location: http://localhost:8000/index.php");
-             exit;
-             
-            return [
-                'success' => true,
-                'uid' => $response['localId'],
-                'email' => $email,
-                'name' => $name
-            ];
+        if (isset($response['localId'])) {
+            header("Location: http://localhost:8000/index.php");
+            exit;
         } else {
             return [
                 'success' => false,
@@ -36,8 +27,7 @@ class FirebaseAuth {
             ];
         }
     }
-    
-    // Sign in user
+
     public function signIn($email, $password) {
         $url = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=" . $this->apiKey;
         
@@ -48,17 +38,13 @@ class FirebaseAuth {
         ];
         
         $response = $this->makeRequest($url, $data);
-        
-        if (isset($response['localId'])) {
 
+        if (isset($response['idToken'])) {
+            $this->setSecureCookie('id_token', $response['idToken']);
+            $this->setSecureCookie('refresh_token', $response['refreshToken']);
+            
             header("Location: http://localhost:5173/home");
             exit;
-
-            return [
-                'success' => true,
-                'uid' => $response['localId'],
-                'email' => $email
-            ];
         } else {
             return [
                 'success' => false,
@@ -66,7 +52,7 @@ class FirebaseAuth {
             ];
         }
     }
-    
+
     private function makeRequest($url, $data) {
         $options = [
             'http' => [
@@ -82,9 +68,24 @@ class FirebaseAuth {
         
         return json_decode($result, true);
     }
+
+    private function setSecureCookie($name, $value) {
+        $expiry = time() + (7 * 24 * 60 * 60);
+
+        setcookie(
+            $name,
+            $value,
+            [
+                'expires' => $expiry,
+                'path' => '/',
+                'secure' => true,
+                'httponly' => true,
+                'samesite' => 'Strict'
+            ]
+        );
+    }
 }
 
-// Your Firebase API Key
 $FIREBASE_API_KEY = "AIzaSyA5-wZiIU9EHreKd460rHccBiPK4I_w2MU";
 $firebaseAuth = new FirebaseAuth($FIREBASE_API_KEY);
 ?>
