@@ -9,7 +9,7 @@ import WallOfLegends from "./components/community/WallOfLegends";
 import ProjectsSection from "./pages/ProjectsSection";
 import GalleryPage from "./components/gallery/GalleryPage";
 import ProjectDetailPage from "./pages/ProjectDetailPage";
-
+import DashBoard from "./pages/DashBoard";
 function App() {
   return (
     <BrowserRouter>
@@ -27,8 +27,8 @@ function App() {
                 <Route path="PollsPage" element={<PollsPage />} />
                 <Route path="community" element={<CommunityPage />} />
                 {/* <Route path="events" element={<EventsPage />} />
-                <Route path="projects" element={<ProjectsPage />} />
-                <Route path="dashboard" element={<Dashboard />} /> */}
+                <Route path="projects" element={<ProjectsPage />} />*/}
+                <Route path="dashboard" element={<DashBoard />} />
                 <Route path="WallOfLegends" element={<WallOfLegends />} />
                 <Route path="GalleryPage" element={<GalleryPage />} />
                 <Route path="ProjectsSection" element={<ProjectsSection />} />
