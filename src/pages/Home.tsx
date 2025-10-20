@@ -7,25 +7,22 @@ import { useEffect, useState } from "react";
 
 export default function HomePage() {
   // Defining states and custom useTestUser() hook
-  const [userInfo, setUserInfo] = useState({});
-  const {tryuserfetch} = useTestUser();
+  const [_userInfo, setUserInfo] = useState({}); //TODO: not complete fix ..need to add vlaue for userinfo
+  const { tryuserfetch } = useTestUser();
 
   useEffect(() => {
-    // Define a function for async fetching the data 
-      const fetchUserInfo = async () => {
-        const userinfo = await tryuserfetch(); 
-        setUserInfo(userinfo);
-        //
-        console.log("Fetched user info:", userinfo);
-      }
+    const fetchUserInfo = async () => {
+      const userinfo = await tryuserfetch();
+      setUserInfo(userinfo);
 
-    // Calling the function whenever the page relods
+      console.log("Fetched user info:", userinfo);
+    };
+
     fetchUserInfo();
-  }, [])
+  }, []);
   return (
     <>
       <section className="h-screen w-full bg-[#0a1a33] text-white font-poppins flex flex-col justify-between overflow-hidden">
-        {/* ---------- HERO SECTION ---------- */}
         <div className="flex flex-col md:flex-row items-center justify-between px-10 md:px-20 flex-grow">
           <div className="flex-1 text-center md:text-left">
             <h1 className="text-3xl md:text-5xl font-extrabold text-[#9cc9ff] leading-tight">

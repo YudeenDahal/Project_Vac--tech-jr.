@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CountUp from "react-countup";
 import {
   User,
   Star,
@@ -55,7 +56,13 @@ export default function DashboardPage() {
       >
         <Icon className={colorClass} size={24} />
       </div>
-      <p className="text-2xl font-bold text-white">{value}</p>
+      <p className="text-2xl font-bold text-white">
+        {typeof value === "number" ? (
+          <CountUp end={value} duration={5} />
+        ) : (
+          value
+        )}{" "}
+      </p>
       <p className="text-xs text-gray-400 mt-1">{label}</p>
     </div>
   );
@@ -86,7 +93,7 @@ export default function DashboardPage() {
                 alt={memberData.name}
                 className="absolute inset-0 w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/10 to-transparent"></div>
               <div className="absolute bottom-0 left-0 p-6 text-white">
                 <h2 className="text-3xl font-bold text-shadow-md">
                   Welcome, {memberData.name.split(" ")[0]}!

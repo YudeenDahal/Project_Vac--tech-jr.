@@ -2,6 +2,7 @@ import { Search, Filter, ArrowRight, Gem } from "lucide-react";
 import { allProjects } from "../data/projects";
 import type { Project } from "../data/projects";
 import { Link } from "react-router-dom";
+import CountUp from "react-countup";
 
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
@@ -17,7 +18,7 @@ const ProjectCard = ({ project }: { project: Project }) => {
         <div className="flex-shrink-0 flex items-center gap-2 bg-[#0a1a33] px-3 py-1 rounded-xl border border-yellow-400/50">
           <Gem size={14} className="text-yellow-400" />
           <span className="text-sm font-bold text-yellow-300">
-            {project.points} pts
+            <CountUp end={project.points} duration={5} /> pts
           </span>
         </div>
       </div>
