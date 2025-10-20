@@ -2,8 +2,26 @@ import { Rocket, Users, Code, Trophy } from "lucide-react";
 import HomeHeroGraphic from "../components/heroGraphics.tsx";
 import AboutSection from "./AboutUs";
 import CountUp from "react-countup";
+import useTestUser from "../hooks/tests/useTestuser.tsx";
+import { useEffect, useState } from "react";
 
 export default function HomePage() {
+  // Defining states and custom useTestUser() hook
+  const [userInfo, setUserInfo] = useState({});
+  const {tryuserfetch} = useTestUser();
+
+  useEffect(() => {
+    // Define a function for async fetching the data 
+      const fetchUserInfo = async () => {
+        const userinfo = await tryuserfetch(); 
+        setUserInfo(userinfo);
+        //
+        console.log("Fetched user info:", userinfo);
+      }
+
+    // Calling the function whenever the page relods
+    fetchUserInfo();
+  }, [])
   return (
     <>
       <section className="h-screen w-full bg-[#0a1a33] text-white font-poppins flex flex-col justify-between overflow-hidden">
